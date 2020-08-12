@@ -8,5 +8,5 @@ spring:
     hibernate:
 #      更新或者创建数据表
       ddl-auto: update
-#      线上sql
-      show-sql: true
+      show-sql: on
+#      显示sql

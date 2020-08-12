@@ -1,6 +1,8 @@
 package com.qby.springboot.entity;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
 
 // 使用jpa注解配置映射关系
@@ -8,6 +10,7 @@ import javax.persistence.*;
 @Entity
 // @table 指定和哪个数据表对应 如果省略默认表名就是user
 @Table(name = "tbl_user")
+@JsonIgnoreProperties(value = { "hibernateLazyInitializer"})
 public class User {
 
     @Id //这是一个主键
@@ -42,5 +45,14 @@ public class User {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }
